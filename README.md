@@ -1,112 +1,88 @@
 # When the Editing Intent Is Split: A Cross-Modal Jailbreak Attack for Large Image Editing Models
 
-Official implementation of **SIJA** and **SI2ESBench**.
+Official repository for **SIJA** and **SI2ESBench**.
 
-🌐 **[Project Page](TODO)** | 🎨 **[Dataset](TODO)** | 📄 **[Paper](TODO)**
+🤗 **[SI2ESBench](https://huggingface.co/datasets/xianminye/SI2ESBench)** | 📄 **Paper (arXiv coming soon)**
 
 ---
 
 ## 📢 Updates
 
-- **[2026-XX-XX]** Code and SI2ESBench released.
-- **[2026-XX-XX]** Paper available on arXiv.
+- **[2026-09]** SI2ESBench is released on Hugging Face.
+- **[2026-09]** Our paper has been submitted to arXiv.
 
 ---
 
-## ⚡️ Highlights
+## ⚡️ Overview
 
-### Split-Intent Jailbreak Attack
+We identify a **split-intent safety threat** in large image editing models and propose the **Split-Intent Jailbreak Attack (SIJA)**.
 
-We identify **split-intent**, a cross-modal safety threat in large image editing models.
+Unlike text-centric or vision-centric jailbreak attacks, SIJA distributes an unsafe editing intent across textual and visual inputs: the textual instruction identifies the editing referent, while the safety-critical action and specification are conveyed through graphical visual semantics in an auxiliary cue.
 
-Unlike existing attacks that place the complete harmful editing intent in either text or vision, **SIJA distributes complementary components of the editing intent across textual and visual inputs**. The textual instruction identifies the editing referent, while safety-critical editing semantics are concealed through graphical visual cues.
-
-The complete unsafe transformation emerges only when the model jointly interprets the multimodal inputs.
+Neither component independently specifies the complete unsafe transformation. The intended edit emerges only through joint interpretation of the source image, textual instruction, and visual cue.
 
 <p align="center">
   <img src="assets/overview.png" width="95%">
 </p>
 
-### SI2ESBench
+---
 
-We introduce **SI2ESBench**, a benchmark for evaluating split-intent jailbreak attacks on large image editing models.
+## 🗂 SI2ESBench
 
-SI2ESBench covers **10 risk categories** and evaluates whether models can reconstruct and execute harmful transformations from distributed multimodal intent.
+We introduce **SI2ESBench**, a benchmark for evaluating large image editing models under split-intent inputs.
+
+SI2ESBench contains **766 manually validated instances** across **10 risk categories**, covering diverse editing operations and source-image contexts.
 
 Each instance contains:
 
 - a source image;
 - a referent-identifying textual instruction;
-- an auxiliary visual cue;
-- the corresponding risk category and editing intent.
+- an action icon;
+- an edit-specification image;
+- semantic annotations and the corresponding risk category.
 
-### Editing-Intent Reconstruction Defense
-
-Motivated by SIJA, we formulate image-editing safety as an **editing-intent reconstruction** problem.
-
-Instead of assessing individual inputs independently, the safeguard jointly reconstructs the intended editing reference, action, and specification from all textual and visual inputs, and evaluates the safety of the resulting transformation.
-
----
-
-## 🚀 Setup
-
-```bash
-git clone TODO/SIJA.git
-cd SIJA
-
-conda create -n sija python=3.10 -y
-conda activate sija
-pip install -r requirements.txt
-```
-
-Detailed instructions for attack evaluation, defense evaluation, and benchmark usage will be provided with the code release.
+🤗 **Dataset:**  
+https://huggingface.co/datasets/xianminye/SI2ESBench
 
 ---
 
 ## 📊 Evaluation
 
-We evaluate SIJA on representative commercial and open-source image editing models using four metrics:
+We evaluate SIJA using four complementary metrics:
 
-| Metric | Description |
-|---|---|
-| **ASR** | Attack Success Rate, measuring refusal bypass |
-| **HS** | Harmfulness Score of the edited output |
-| **EV** | Editing Validity of the intended transformation |
-| **HRR** | High-Risk Ratio, measuring effective harmful edits |
+- **ASR**: Attack Success Rate
+- **HS**: Harmfulness Score
+- **EV**: Editing Validity
+- **HRR**: High-Risk Ratio
 
-Detailed model-wise and category-wise results are reported in the paper.
+Our experiments cover seven representative commercial and open-source image editing models, together with one defense-enhanced configuration.
+
+Detailed results and evaluation protocols are provided in the paper.
 
 ---
 
-## 🗂 SI2ESBench
+## 🛡️ Defense
 
-The benchmark will be released on Hugging Face.
+To mitigate split-intent attacks, we formulate **editing-intent reconstruction** as a defense principle.
 
-🎨 **[Download SI2ESBench](TODO)**
+Instead of assessing individual inputs independently, the safeguard reconstructs the complete editing reference, action, and specification from the joint multimodal context before evaluating the safety of the resulting transformation.
 
-A benchmark instance contains the source image, textual instruction, auxiliary visual cue, decomposed editing intent, and risk-category annotation.
+---
+
+## 🚀 Code
+
+Code for SIJA evaluation and the editing-intent reconstruction defenses will be released soon.
 
 ---
 
 ## 🎓 Citation
 
-If you find this work useful, please consider citing:
-
-```bibtex
-@misc{ye2026sija,
-  title  = {When the Editing Intent Is Split: A Cross-Modal Jailbreak Attack for Large Image Editing Models},
-  author = {Xianmin Ye and Zhiyuan Fan and Tianju Liu and Yuhang Wang and TODO},
-  year   = {2026},
-  eprint = {TODO},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.CV}
-}
-```
+The BibTeX entry will be updated once the arXiv page becomes publicly available.
 
 ---
 
 ## ❌ Disclaimer
 
-This repository is intended solely for academic research on AI safety and the evaluation of large image editing models.
+This repository and SI2ESBench are intended solely for academic research on AI safety and the evaluation of large image editing models.
 
-The benchmark may contain unsafe or sensitive examples for safety evaluation. The released materials should only be used for responsible research and in compliance with applicable laws, model licenses, and platform policies.
+The benchmark contains unsafe or sensitive examples constructed for controlled safety evaluation. The released materials should be used responsibly and in compliance with applicable laws, model licenses, and platform policies.
