@@ -87,7 +87,7 @@ If you find our work useful, please consider citing:
   eprint={2610.23909},
   archivePrefix={arXiv},
   primaryClass={cs.CV},
-  url={https://arxiv.org/abs/2610.23909}
+  url={https://arxiv.org/abs/2610.23909}}
 ---
 
 ## ❌ Disclaimer
