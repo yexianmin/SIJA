@@ -71,7 +71,7 @@ Instead of assessing individual inputs independently, the safeguard reconstructs
 
 ## 🚀 Code
 
-Code for SIJA evaluation and the editing-intent reconstruction defenses will be released soon.
+Code for the editing-intent reconstruction defense will be released soon.
 
 ---
 
