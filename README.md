@@ -2,14 +2,14 @@
 
 Official repository for **SIJA** and **SI2ESBench**.
 
-🤗 **[SI2ESBench](https://huggingface.co/datasets/xianminye/SI2ESBench)** | 📄 **Paper (arXiv coming soon)**
+📄 **[Paper](https://arxiv.org/abs/2610.23909)** | 🤗 **[SI2ESBench](https://huggingface.co/datasets/xianminye/SI2ESBench)**
 
 ---
 
 ## 📢 Updates
 
+- **[2026-10]** Our paper is available on arXiv.
 - **[2026-09]** SI2ESBench is released on Hugging Face.
-- **[2026-09]** Our paper has been submitted to arXiv.
 
 ---
 
@@ -77,8 +77,17 @@ Code for SIJA evaluation and the editing-intent reconstruction defenses will be 
 
 ## 🎓 Citation
 
-The BibTeX entry will be updated once the arXiv page becomes publicly available.
+If you find our work useful, please consider citing:
 
+```
+@misc{ye2026editing,
+  title={When the Editing Intent Is Split: A Cross-Modal Jailbreak Attack for Large Image Editing Models},
+  author={Xianmin Ye and Zhiyuan Fan and Tianju Liu and Yuhang Wang and Zhenxing Niu and Haichang Gao},
+  year={2026},
+  eprint={2610.23909},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2610.23909}
 ---
 
 ## ❌ Disclaimer
